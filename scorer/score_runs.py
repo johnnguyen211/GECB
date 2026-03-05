@@ -94,7 +94,7 @@ def main():
 
     cases = {}
     for c in load_jsonl(args.cases):
-        cases[c["case_id"]] = c
+        cases[c["id"]] = c
 
     allow = None
     if args.allowlists:
@@ -108,7 +108,7 @@ def main():
 
     with open(args.out, "w", encoding="utf-8") as out_f:
         for r in load_jsonl(args.runs):
-            case = cases.get(r["case_id"])
+            case = cases.get(r.get("case_id") or r.get("id"))
             if not case:
                 # skip unknown case
                 continue
