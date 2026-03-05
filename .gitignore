@@ -2,3 +2,12 @@
 __pycache__/
 *.pyc
 scored_runs.jsonl
+# outputs / local runs
+out*.json
+*.jsonl
+!datasets/*.jsonl
+!examples/*.jsonl
+
+# python cache
+__pycache__/
+*.pyc

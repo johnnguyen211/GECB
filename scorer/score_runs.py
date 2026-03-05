@@ -112,7 +112,7 @@ def main():
             if not case:
                 # skip unknown case
                 continue
-             md = case.get("metadata") or {}
+            md = case.get("metadata") or {}
             is_attack = md.get("is_attack")
             if is_attack is None:
                 is_attack = case.get("is_attack")
