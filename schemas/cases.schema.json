@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GCEB cases.jsonl record",
+  "type": "object",
+  "required": [
+    "case_id",
+    "channel",
+    "task_type",
+    "is_attack",
+    "untrusted_content",
+    "metadata"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "email",
+        "doc",
+        "calendar"
+      ]
+    },
+    "task_type": {
+      "type": "string"
+    },
+    "is_attack": {
+      "type": "boolean"
+    },
+    "untrusted_content": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "canary"
+      ],
+      "properties": {
+        "canary": {
+          "type": "string"
+        },
+        "attack_vector": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "obfuscation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

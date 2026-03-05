@@ -1,0 +1,54 @@
+{
+  "name": "Enterprise-Agent-Eval cases.jsonl (v3 ultra)",
+  "generated_at": "2026-02-28T08:43:11.004476Z",
+  "seed": 20260231,
+  "total_cases": 1000,
+  "attack_cases": 661,
+  "clean_cases": 339,
+  "attack_vectors": {
+    "benign_render": 20,
+    "benign_tool_use": 116,
+    "multistep_chain": 60,
+    "none": 203,
+    "render": 80,
+    "render_obf": 81,
+    "text": 81,
+    "text_obf": 81,
+    "tool_call": 70,
+    "tool_call_in_policy": 69,
+    "tool_call_in_policy_obf": 71,
+    "tool_call_obf": 68
+  },
+  "tasks": {
+    "hr_summarization": 319,
+    "finance_report": 336,
+    "general_chat": 345
+  },
+  "channels": {
+    "email": 332,
+    "doc": 312,
+    "calendar": 356
+  },
+  "marker_styles": {
+    "overt": 134,
+    "no_marker": 133,
+    "zwsp": 118,
+    "heading": 141,
+    "homoglyph": 135
+  },
+  "render_styles": {
+    "md_image": 32,
+    "md_link": 27,
+    "autolink": 28,
+    "html_img": 24,
+    "html_link": 27,
+    "ref_md": 23
+  },
+  "schema_version": "v3",
+  "notes": [
+    "Ultra set adds obfuscation variants (urlencoded/base64/split) in text/render/tool channels with canary_variants metadata for deterministic scoring.",
+    "Adds homoglyph and ZWSP marker styles to stress naive A2 keyword shields.",
+    "Adds multi-step chain cases to stress agentic intent (print + tool).",
+    "Adds benign render and benign tool-use cases to measure FPR in realistic UX."
+  ]
+}

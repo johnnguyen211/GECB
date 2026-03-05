@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GCEB runs.jsonl record",
+  "type": "object",
+  "required": [
+    "run_id",
+    "case_id",
+    "task_type",
+    "config_id",
+    "timestamp",
+    "telemetry"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "task_type": {
+      "type": "string"
+    },
+    "config_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "setup": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "telemetry": {
+      "type": "object",
+      "required": [
+        "final_output_text",
+        "tool_calls"
+      ],
+      "properties": {
+        "final_output_text": {
+          "type": "string"
+        },
+        "tool_calls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "tool_name",
+              "arguments",
+              "status"
+            ],
+            "properties": {
+              "step": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "tool_name": {
+                "type": "string"
+              },
+              "arguments": {
+                "type": [
+                  "string",
+                  "object",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ATTEMPTED",
+                  "DENIED",
+                  "EXECUTED"
+                ]
+              },
+              "outcome": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "denial_reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "latency_ms": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "prompt_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "completion_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
