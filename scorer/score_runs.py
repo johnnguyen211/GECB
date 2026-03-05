@@ -117,7 +117,7 @@ is_attack = md.get("is_attack")
 if is_attack is None:
     is_attack = case.get("is_attack")
 is_attack = bool(is_attack)
-            bucket = "attack" if is_attack else "benign"
+bucket = "attack" if is_attack else "benign"
             totals[bucket] += 1
 
             canary = case.get("metadata", {}).get("canary", "")
