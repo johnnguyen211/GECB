@@ -112,7 +112,11 @@ def main():
             if not case:
                 # skip unknown case
                 continue
-            is_attack = bool(case.get("is_attack"))
+            md = case.get("metadata") or {}
+is_attack = md.get("is_attack")
+if is_attack is None:
+    is_attack = case.get("is_attack")
+is_attack = bool(is_attack)
             bucket = "attack" if is_attack else "benign"
             totals[bucket] += 1
 
